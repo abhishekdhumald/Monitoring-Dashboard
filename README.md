@@ -1,163 +1,139 @@
-Extract Monitor Dashboard
+# Extract Monitor Dashboard
+
 A simple dashboard built using:
 
-HTML
-CSS
-JavaScript
-FastAPI
-JSON Log Files
-Project Structure
+- HTML
+- CSS
+- JavaScript
+- FastAPI
+- JSON Log Files
+
+---
+
+## Project Structure
+
+```text
 project/
 
 ├── index.html
-
 ├── css/
 │   └── style.css
-
 ├── js/
 │   └── script.js
-
 ├── logs/
 │   ├── Execution_Extract/
 │   ├── Portfolio_Extract/
 │   └── TimeBox_Extract/
-
 └── backend/
     ├── main.py
     ├── requirements.txt
     └── services/
         └── file_reader.py
-Step 1 - Create Virtual Environment
-Navigate to backend folder:
+```
 
+## Step 1 - Create Virtual Environment
+
+```bash
 cd backend
-Create virtual environment:
-
 python -m venv venv
-Activate virtual environment.
+```
 
-Windows
+Activate:
+
+Windows:
+
+```bash
 venv\Scripts\activate
-Linux / Mac
+```
+
+Linux/Mac:
+
+```bash
 source venv/bin/activate
-Step 2 - Install Dependencies
-Install required packages:
+```
 
+## Step 2 - Install Dependencies
+
+```bash
 pip install -r requirements.txt
-Or install manually:
+```
 
+Or:
+
+```bash
 pip install fastapi uvicorn python-multipart
-Verify installation:
+```
 
-pip list
-Step 3 - Run FastAPI Backend
-Start FastAPI server:
+## Step 3 - Run FastAPI Backend
 
+```bash
 uvicorn main:app --reload
-Expected output:
+```
 
-INFO:     Uvicorn running on http://127.0.0.1:8000
-INFO:     Application startup complete
-Step 4 - Verify Backend APIs
-Health Check
-Open:
+## Step 4 - Verify APIs
 
+Health Check:
+
+```text
 http://127.0.0.1:8000/
-Response:
+```
 
-{
-    "status": "UP"
-}
-Applications API
-Open:
+Applications API:
 
+```text
 http://127.0.0.1:8000/applications/2026-10-05
-Summary API
-Open:
+```
 
+Summary API:
+
+```text
 http://127.0.0.1:8000/summary/2026-10-05
-Application Details API
-Open:
+```
 
+Application Details API:
+
+```text
 http://127.0.0.1:8000/application/Execution_Extract/2026-10-05
-Step 5 - Run Frontend
-Open a new terminal at project root.
+```
 
-Example:
+## Step 5 - Run Frontend
 
-cd project
-Start a simple HTTP server:
+From project root:
 
+```bash
 python -m http.server 5500
-Expected output:
+```
 
-Serving HTTP on :: port 5500
-Step 6 - Open Dashboard
-Open browser:
+## Step 6 - Open Dashboard
 
+```text
 http://localhost:5500
-Dashboard will load and fetch data from:
+```
 
-http://127.0.0.1:8000
-Development Workflow
-Start Backend
-cd backend
+## Development Workflow
 
-venv\Scripts\activate
-
-uvicorn main:app --reload
-Start Frontend
-Open another terminal:
-
-cd project
-
-python -m http.server 5500
-Open Browser
-http://localhost:5500
-Stop Application
-Stop backend:
-
-CTRL + C
-Stop frontend:
-
-CTRL + C
-Deactivate virtual environment:
-
-deactivate
-Common Issues
-Module Not Found
-Install dependencies:
-
-pip install -r requirements.txt
-Port Already In Use
-Run FastAPI on another port:
-
-uvicorn main:app --reload --port 8001
-Update API URLs inside:
-
-js/script.js
-Example:
-
-http://127.0.0.1:8001
-Dashboard Shows No Data
-Verify logs exist:
-
-logs/
-├── Execution_Extract/
-├── Portfolio_Extract/
-└── TimeBox_Extract/
-Verify API:
-
-http://127.0.0.1:8000/applications/2026-10-05
-If API returns data, dashboard should display records.
-
-Default URLs
 Backend:
 
-http://127.0.0.1:8000
+```bash
+cd backend
+venv\Scripts\activate
+uvicorn main:app --reload
+```
+
 Frontend:
 
-http://localhost:5500
-Dashboard:
+```bash
+python -m http.server 5500
+```
 
-http://localhost:5500/index.html
+## Stop Application
+
+```text
+CTRL + C
+```
+
+Deactivate:
+
+```bash
+deactivate
+```
